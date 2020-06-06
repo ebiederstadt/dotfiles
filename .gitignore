@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Then select what we don't want to ignore
+!.gitignore
+!setup.sh
+!.vimrc
+!.zshrc
+!setscreen.sh

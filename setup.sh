@@ -19,6 +19,12 @@ if [ $USER != "root" ]; then
     exit -1
 fi
 
+info_text "Installing vim"
+apt install vim
+info_text "Installing vim plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 info_text "Installing nvm version 0.35.3"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
@@ -27,11 +33,8 @@ nvm install node 12
 
 info_text "Installing pip with python3"
 apt install python3-pip
-
-info_text "Installing zsh"
-apt install zsh
-info_text "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+info_text "Installing jedi for vim-coc"
+pip3 install jedi
 
 info_text "Installing snap store"
 apt install snapd
