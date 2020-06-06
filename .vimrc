@@ -38,6 +38,7 @@ Plug 'vim-utils/vim-man'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'lervag/vimtex'
+Plug '907th/vim-auto-save'
 call plug#end()
 
 " Color scheme
@@ -46,4 +47,6 @@ set background=dark
 
 " Keymappings
 nnoremap <leader>u :UndotreeToggle<CR>
+
+let g:auto_save=1
 
