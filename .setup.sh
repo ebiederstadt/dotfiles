@@ -19,14 +19,26 @@ if [ $USER != "root" ]; then
     exit -1
 fi
 
+info_text "Installing fish shell"
+apt install fish
+
+info_text "Using the fish shell"
+fish
+
+info_text "Changing the default shell to fish"
+chsh -s /usr/local/bin/fish
+
+info_text "Installing fisher"
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+
+info_text "Installing fish-nvm"
+fisher add jorgebucaran/fish-nvm
+
 info_text "Installing vim"
 apt install vim
 info_text "Installing vim plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-info_text "Installing nvm version 0.35.3"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 info_text "Installing node version 12.x"
 nvm install node 12

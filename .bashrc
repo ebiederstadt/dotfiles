@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -128,3 +128,10 @@ export PS1="\u@\h\[\e[32m\] \[\e[91m\]\$(parse_git_branch)\[\e[00m\]\n\w $ "
 
 export VISUAL=vim
 export EDTOR=$VISUAL
+
+# Drop into fish on startup
+if [[ $(ps --no-header --pid=$PPID --format=cmd) != fish ]]
+then
+    exec fish
+fi
+
