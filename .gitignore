@@ -1,4 +1,7 @@
-# Ignore everything
+# Things that we explicitly want to include
+.config/fish/functions/fish_greeting.fish
+
+# Ignore everything else
 *
 
 # Then select what we don't want to ignore
@@ -8,4 +11,3 @@
 !.zshrc
 !.setscreen.sh
 !.bashrc
-!.config/fish/functions/fish_greeting.fish
